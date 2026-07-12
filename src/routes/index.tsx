@@ -107,6 +107,9 @@ function Klinga() {
         return;
       }
 
+      // Ensure mask children start below and reveal from there
+      gsap.set(".mask-line > *", { yPercent: 110 });
+
       // Hero headline lines
       gsap.to(".hero-line > *", {
         yPercent: 0,
@@ -129,16 +132,20 @@ function Klinga() {
       gsap.fromTo(".hero-meta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9, delay: 1.1, ease: "power3.out" });
       gsap.fromTo(".hero-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9, delay: 0.9, ease: "power3.out" });
 
-      // Generic mask line reveals on scroll
+      // Generic mask line reveals on scroll (skip hero which is already animating)
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((container) => {
         const lines = container.querySelectorAll<HTMLElement>(".mask-line > *");
-        gsap.to(lines, {
-          yPercent: 0,
-          duration: 0.95,
-          ease: "power4.out",
-          stagger: 0.08,
-          scrollTrigger: { trigger: container, start: "top 82%" },
-        });
+        gsap.fromTo(
+          lines,
+          { yPercent: 110 },
+          {
+            yPercent: 0,
+            duration: 0.95,
+            ease: "power4.out",
+            stagger: 0.08,
+            scrollTrigger: { trigger: container, start: "top 82%" },
+          },
+        );
       });
 
       // Clip reveals for images
