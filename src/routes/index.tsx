@@ -95,7 +95,8 @@ function Klinga() {
 
   // Entrance + scroll animations
   useEffect(() => {
-    if (!loaded) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const heroDelay = reduce ? 0 : 1.4;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const ctx = gsap.context(() => {
       if (reduce) {
