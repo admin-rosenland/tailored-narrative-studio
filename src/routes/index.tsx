@@ -258,7 +258,7 @@ function Klinga() {
     document.fonts?.ready.then(() => ScrollTrigger.refresh());
 
     return () => ctx.revert();
-  }, [loaded]);
+  }, []);
 
   // Service row cursor-follow image
   const cursorImgRef = useRef<HTMLDivElement>(null);
@@ -277,7 +277,7 @@ function Klinga() {
     };
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
-  }, [loaded]);
+  }, []);
 
   const showCursorImg = (src: string) => {
     if (!cursorImgRef.current || !cursorImgSrc.current) return;
