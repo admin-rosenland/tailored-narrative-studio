@@ -122,15 +122,15 @@ function Klinga() {
       gsap.fromTo(
         ".hero-inline",
         { width: 0 },
-        { width: "var(--inline-w, 8.5em)", duration: 1.1, ease: "power3.inOut", delay: 0.5 },
+        { width: "var(--inline-w, 8.5em)", duration: 1.1, ease: "power3.inOut", delay: heroDelay + 0.4 },
       );
       gsap.fromTo(
         ".hero-inline img",
         { scale: 1.25 },
-        { scale: 1, duration: 1.4, ease: "power3.out", delay: 0.5 },
+        { scale: 1, duration: 1.4, ease: "power3.out", delay: heroDelay + 0.4 },
       );
-      gsap.fromTo(".hero-meta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9, delay: 1.1, ease: "power3.out" });
-      gsap.fromTo(".hero-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9, delay: 0.9, ease: "power3.out" });
+      gsap.fromTo(".hero-meta", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9, delay: heroDelay + 1.0, ease: "power3.out" });
+      gsap.fromTo(".hero-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9, delay: heroDelay + 0.8, ease: "power3.out" });
 
       // Generic mask line reveals on scroll (skip hero which is already animating)
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((container) => {
