@@ -192,7 +192,6 @@ body {
 }
 .mask-line > * {
   display: inline-block;
-  transform: translateY(110%);
   will-change: transform;
 }
 
