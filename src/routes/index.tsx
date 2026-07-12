@@ -335,7 +335,7 @@ function Klinga() {
             <a href="#boka" className="t-mono link-brass">Boka</a>
             <a href="#boka" className="pill-outline">Boka tid</a>
           </div>
-          <a href="#boka" className="pill-outline md:hidden">Boka</a>
+          <a href="#boka" className="pill-outline md:!hidden">Boka</a>
         </div>
       </nav>
 
