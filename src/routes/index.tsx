@@ -97,7 +97,6 @@ function Klinga() {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const heroDelay = reduce ? 0 : 1.4;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const ctx = gsap.context(() => {
       if (reduce) {
         gsap.utils.toArray<HTMLElement>("[data-fade]").forEach((el) => {
@@ -117,7 +116,7 @@ function Klinga() {
         duration: 0.95,
         ease: "power4.out",
         stagger: 0.09,
-        delay: 0.1,
+        delay: heroDelay,
       });
       // Hero inline image
       gsap.fromTo(
