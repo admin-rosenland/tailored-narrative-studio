@@ -79,6 +79,31 @@ function Klinga() {
     };
   }, []);
 
+  // Smooth-scroll internal hash links via Lenis
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    const root = scope.current;
+    if (!root) return;
+
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest("a[href^=\"#\"]");
+      if (!anchor) return;
+      const href = anchor.getAttribute("href");
+      if (!href || href === "#") return;
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if (el && lenisRef.current) {
+        lenisRef.current.scrollTo(el, { offset: -80 });
+      }
+    };
+
+    root.addEventListener("click", handleClick);
+    return () => root.removeEventListener("click", handleClick);
+  }, []);
+
   // Preloader
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
