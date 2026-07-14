@@ -94,7 +94,7 @@ function Klinga() {
       const href = anchor.getAttribute("href");
       if (!href || href === "#") return;
       e.preventDefault();
-      const el = document.querySelector(href);
+      const el = document.querySelector(href) as HTMLElement | null;
       if (el && lenisRef.current) {
         lenisRef.current.scrollTo(el, { offset: -80 });
       }
