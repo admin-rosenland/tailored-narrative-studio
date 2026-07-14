@@ -78,20 +78,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#16140F" },
-      { title: "Klinga — Skräddarsydd klippning i Stockholm" },
+      { title: "Klinga" },
       {
         name: "description",
         content:
           "Klinga är en herrsalong i Stockholm. Vi läser växtriktning, huvudform och hur du faktiskt stylar håret. Sen klipper vi för det.",
       },
-      { property: "og:title", content: "Klinga — Herrsalong, Stockholm" },
+      { property: "og:title", content: "Klinga" },
       {
         property: "og:description",
         content:
-          "Skräddarsydd klippning. Du ser skarp ut. Du känner det innan du hunnit ut genom dörren.",
+          "Klinga är en herrsalong i Stockholm. Vi läser växtriktning, huvudform och hur du faktiskt stylar håret. Sen klipper vi för det.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Klinga" },
+      { name: "twitter:description", content: "Klinga är en herrsalong i Stockholm. Vi läser växtriktning, huvudform och hur du faktiskt stylar håret. Sen klipper vi för det." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/086b0207-eaf5-485b-b27e-3c9f19273a7f/id-preview-8a9aa13e--0ee6b1dd-91e1-4cec-a16f-423d3593b62d.lovable.app-1784030541386.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/086b0207-eaf5-485b-b27e-3c9f19273a7f/id-preview-8a9aa13e--0ee6b1dd-91e1-4cec-a16f-423d3593b62d.lovable.app-1784030541386.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
