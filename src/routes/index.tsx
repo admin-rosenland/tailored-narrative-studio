@@ -30,6 +30,7 @@ export const Route = createFileRoute("/")({
 
 const BRAND = "KLINGA";
 const YEAR = "2014";
+const BOOKING_URL = "https://www.bokadirekt.se/";
 
 const services = [
   { i: "01", name: "Klippning", note: "Formad efter dig, inte efter en mall.", price: "495 kr", img: gallery3 },
@@ -50,6 +51,7 @@ const gallery = [gallery1, gallery2, gallery3, gallery4, gallery5, shopfront];
 function Klinga() {
   const [loaded, setLoaded] = useState(false);
   const scope = useRef<HTMLDivElement>(null);
+  const lenisRef = useRef<Lenis | null>(null);
 
   // Lenis + ScrollTrigger + prefers-reduced-motion
   useEffect(() => {
@@ -60,6 +62,7 @@ function Klinga() {
     let raf = 0;
     if (!reduce) {
       lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+      lenisRef.current = lenis;
       lenis.on("scroll", ScrollTrigger.update);
       const tick = (time: number) => {
         lenis!.raf(time * 1000);
@@ -71,6 +74,7 @@ function Klinga() {
     return () => {
       cancelAnimationFrame(raf);
       lenis?.destroy();
+      lenisRef.current = null;
       ScrollTrigger.getAll().forEach((s) => s.kill());
     };
   }, []);
