@@ -172,6 +172,7 @@ function Klinga() {
               scale: 1,
               duration: 1.4,
               ease: "power3.out",
+              clearProps: "transform",
               scrollTrigger: { trigger: el, start: "top 85%" },
             },
           );
