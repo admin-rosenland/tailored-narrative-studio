@@ -366,9 +366,9 @@ function Klinga() {
           <div className="hidden md:flex items-center gap-8">
             <a href="#tjanster" className="t-mono link-brass">Tjänster</a>
             <a href="#boka" className="t-mono link-brass">Boka</a>
-            <a href="#boka" className="pill-outline">Boka tid</a>
+            <a href={BOOKING_URL} target="_blank" rel="noopener" className="pill-outline">Boka tid</a>
           </div>
-          <a href="#boka" className="pill-outline md:hidden!">Boka</a>
+          <a href={BOOKING_URL} target="_blank" rel="noopener" className="pill-outline md:hidden!">Boka</a>
         </div>
       </nav>
 
@@ -466,17 +466,19 @@ function Klinga() {
                 onMouseEnter={() => showCursorImg(s.img)}
                 onMouseLeave={hideCursorImg}
               >
-                <div className="grid grid-cols-12 items-baseline gap-4 py-8 md:py-10">
-                  <span className="svc-index t-mono col-span-2 md:col-span-1 text-[var(--bone-dim)]">{s.i}</span>
-                  <div className="svc-shift col-span-10 md:col-span-6">
-                    <h3 className="t-h3">{s.name}</h3>
-                    <p className="t-caption mt-2">{s.note}</p>
+                <a href={BOOKING_URL} target="_blank" rel="noopener" className="block">
+                  <div className="grid grid-cols-12 items-baseline gap-4 py-8 md:py-10">
+                    <span className="svc-index t-mono col-span-2 md:col-span-1 text-[var(--bone-dim)]">{s.i}</span>
+                    <div className="svc-shift col-span-10 md:col-span-6">
+                      <h3 className="t-h3">{s.name}</h3>
+                      <p className="t-caption mt-2">{s.note}</p>
+                    </div>
+                    <span className="hidden md:block col-span-2 t-mono text-[var(--bone-dim)]">Ca 45 min</span>
+                    <span className="col-span-12 md:col-span-3 t-mono text-right text-[var(--bone)]" style={{ fontSize: "0.9rem" }}>
+                      {s.price}
+                    </span>
                   </div>
-                  <span className="hidden md:block col-span-2 t-mono text-[var(--bone-dim)]">Ca 45 min</span>
-                  <span className="col-span-12 md:col-span-3 t-mono text-right text-[var(--bone)]" style={{ fontSize: "0.9rem" }}>
-                    {s.price}
-                  </span>
-                </div>
+                </a>
               </li>
             ))}
           </ul>
@@ -606,7 +608,7 @@ function Klinga() {
               Boka online. Kom som du är, gå därifrån som din bästa version.
             </p>
             <div className="mt-10">
-              <a href="#" className="pill-solid">Boka tid</a>
+              <a href={BOOKING_URL} target="_blank" rel="noopener" className="pill-solid">Boka tid</a>
             </div>
           </div>
           <div className="col-span-12 md:col-span-5 md:-ml-[6vw] mt-10 md:mt-0">
@@ -674,7 +676,7 @@ function Klinga() {
 
       {/* Sticky mobile CTA */}
       <div id="sticky-cta" className="fixed bottom-4 left-4 right-4 z-30 md:hidden">
-        <a href="#boka" className="pill-solid w-full">Boka tid</a>
+        <a href={BOOKING_URL} target="_blank" rel="noopener" className="pill-solid w-full">Boka tid</a>
       </div>
     </div>
   );
