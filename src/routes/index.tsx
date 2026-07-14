@@ -104,6 +104,7 @@ function Klinga() {
         });
         gsap.set(".mask-line > *", { y: 0 });
         gsap.set(".clip-reveal", { clipPath: "inset(0)" });
+        gsap.set(".hero-inline", { width: "clamp(4rem, 11vw, 9rem)" });
         return;
       }
 
@@ -119,10 +120,12 @@ function Klinga() {
         delay: heroDelay,
       });
       // Hero inline image
+      const inlineEl = document.querySelector(".hero-inline") as HTMLElement;
+      const targetW = getComputedStyle(inlineEl).getPropertyValue("--inline-w").trim();
       gsap.fromTo(
         ".hero-inline",
         { width: 0 },
-        { width: "var(--inline-w, 8.5em)", duration: 1.1, ease: "power3.inOut", delay: heroDelay + 0.4 },
+        { width: targetW, duration: 1.1, ease: "power3.inOut", delay: heroDelay + 0.4 },
       );
       gsap.fromTo(
         ".hero-inline img",
