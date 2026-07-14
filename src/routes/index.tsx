@@ -277,7 +277,7 @@ function Klinga() {
     };
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
-  }, []);
+  }, [loaded]);
 
   const showCursorImg = (src: string) => {
     if (!cursorImgRef.current || !cursorImgSrc.current) return;
